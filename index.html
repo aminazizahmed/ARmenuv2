@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MenuAR – See Your Food Before You Order</title>
+  <title>MenuAR – Kisscoff Cafe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -614,21 +614,21 @@
   <div class="container">
     <div class="demo-intro">
       <div class="section-label">Live Demo</div>
-      <h2 class="section-title">Paradise Biryani House</h2>
+      <h2 class="section-title">Kisscoff Cafe</h2>
       <p class="section-body" style="margin:0 auto">
         Tap any dish to see details. Hit <strong style="color:var(--saffron)">👁 View on Table</strong> to open the AR camera experience.
       </p>
     </div>
 
     <div class="restaurant-header">
-      <div class="restaurant-logo">🫕</div>
+      <div class="restaurant-logo">☕</div>
       <div>
-        <div class="restaurant-name">Paradise Biryani House</div>
+        <div class="restaurant-name">Kisscoff Cafe</div>
         <div class="restaurant-meta">
-          Banjara Hills, Hyderabad &nbsp;·&nbsp;
-          <span>⭐ 4.8</span> &nbsp;·&nbsp;
-          Open until 11 PM &nbsp;·&nbsp;
-          Est. 1953
+          Film Nagar, Hyderabad &nbsp;·&nbsp;
+          <span>⭐ 4.6</span> &nbsp;·&nbsp;
+          ₹1,000 for two &nbsp;·&nbsp;
+          All Day Cafe
         </div>
       </div>
     </div>
@@ -670,10 +670,12 @@
 
     <div class="menu-tabs">
       <button class="tab active" onclick="filterMenu('all', this)">All</button>
-      <button class="tab" onclick="filterMenu('biryani', this)">Biryani</button>
-      <button class="tab" onclick="filterMenu('starters', this)">Starters</button>
-      <button class="tab" onclick="filterMenu('mains', this)">Mains</button>
-      <button class="tab" onclick="filterMenu('desserts', this)">Desserts</button>
+      <button class="tab" onclick="filterMenu('coffee', this)">☕ Coffee</button>
+      <button class="tab" onclick="filterMenu('cold', this)">🧊 Cold Drinks</button>
+      <button class="tab" onclick="filterMenu('matcha', this)">🍵 Matcha & Tea</button>
+      <button class="tab" onclick="filterMenu('shakes', this)">🥤 Shakes</button>
+      <button class="tab" onclick="filterMenu('food', this)">🍳 Food</button>
+      <button class="tab" onclick="filterMenu('desserts', this)">🍨 Desserts</button>
     </div>
 
     <div class="menu-grid" id="menu-grid"></div>
@@ -754,7 +756,7 @@
     </p>
     <div class="qr-demo">
       <canvas id="qr-canvas" width="160" height="160"></canvas>
-      <div class="qr-note" style="color:#333; margin-top:0.5rem; font-size:0.75rem;">Table 7 · Paradise Biryani House</div>
+      <div class="qr-note" style="color:#333; margin-top:0.5rem; font-size:0.75rem;">Table 7 · Kisscoff Cafe</div>
     </div>
     <p style="color:var(--text-dim);font-size:0.85rem;">
       ☝️ This QR code links to <em>this</em> demo menu.<br>Scan it on your phone to see the full experience.
@@ -830,18 +832,54 @@
 
 // ── MENU DATA ──
 const menu = [
-  { id:1,  name:"Hyderabadi Dum Biryani", price:349, desc:"Slow-cooked basmati rice with marinated mutton, saffron & caramelised onions.", emoji:"🍛", cat:"biryani",  veg:false, popular:true,  photo:null },
-  { id:2,  name:"Vegetable Biryani",       price:249, desc:"Fragrant basmati with seasonal vegetables, whole spices & fresh mint raita.",   emoji:"🌾", cat:"biryani",  veg:true,  popular:false, photo:null },
-  { id:3,  name:"Chicken Dum Biryani",     price:319, desc:"Tender chicken pieces marinated overnight, layered with saffron rice.",           emoji:"🍗", cat:"biryani",  veg:false, popular:true,  photo:null },
-  { id:4,  name:"Mutton Haleem",           price:289, desc:"Slow-cooked wheat, lentils & mutton blended into a silky rich stew.",             emoji:"🫕", cat:"mains",    veg:false, popular:true,  photo:null },
-  { id:5,  name:"Mirchi Ka Salan",         price:179, desc:"Long green chillies in a tangy peanut & sesame gravy. Classic Hyderabadi.",       emoji:"🫑", cat:"mains",    veg:true,  popular:false, photo:null },
-  { id:6,  name:"Chicken 65",              price:249, desc:"Crispy deep-fried chicken tossed in aromatic spices & curry leaves.",             emoji:"🍖", cat:"starters", veg:false, popular:true,  photo:null },
-  { id:7,  name:"Paneer Tikka",            price:229, desc:"Cottage cheese marinated in spiced yoghurt, grilled in a tandoor.",               emoji:"🧀", cat:"starters", veg:true,  popular:false, photo:null },
-  { id:8,  name:"Double Ka Meetha",        price:149, desc:"Hyderabad's royal bread pudding — fried bread soaked in saffron milk & dry fruits.", emoji:"🍮", cat:"desserts", veg:true, popular:false, photo:null },
-  { id:9,  name:"Qubani Ka Meetha",        price:139, desc:"Stewed apricots in a light syrup, served with fresh cream or ice cream.",         emoji:"🍑", cat:"desserts", veg:true,  popular:false, photo:null },
-  { id:10, name:"Shahi Tukda",             price:159, desc:"Crispy fried bread topped with thickened saffron milk & silver leaf.",             emoji:"🍞", cat:"desserts", veg:true,  popular:false, photo:null },
-  { id:11, name:"Prawn Masala",            price:399, desc:"Jumbo prawns cooked in a tomato-onion masala with coastal spices.",               emoji:"🦐", cat:"mains",    veg:false, popular:false, photo:null },
-  { id:12, name:"Mutton Paya Soup",        price:199, desc:"Slow-boiled trotters in a rich bone broth with ginger & black pepper.",           emoji:"🍲", cat:"starters", veg:false, popular:false, photo:null },
+  // ── Black Coffee
+  { id:1,  name:"Espresso",                       price:200, desc:"A rich, concentrated shot of espresso. Double shot available for ₹230.",            emoji:"☕", cat:"coffee",  veg:true,  popular:false, photo:null },
+  { id:2,  name:"Cranberry Cold Coffee",           price:360, desc:"Cold coffee brightened with a tart cranberry twist — refreshing and bold.",         emoji:"🍒", cat:"coffee",  veg:true,  popular:false, photo:null },
+  // ── White Coffee
+  { id:3,  name:"Biscoff Latte",                  price:340, desc:"Smooth espresso latte swirled with iconic Biscoff spread — the house signature.",    emoji:"🍪", cat:"coffee",  veg:true,  popular:true,  photo:null },
+  { id:4,  name:"Spanish Latte",                  price:320, desc:"Sweetened condensed milk meets espresso, served hot or iced. Rich & velvety.",       emoji:"🥛", cat:"coffee",  veg:true,  popular:true,  photo:null },
+  // ── Cold Coffee
+  { id:5,  name:"Chocolate Brownie Cold Coffee",  price:370, desc:"Cold coffee blended with chocolate brownie — dessert and drink in one glass.",       emoji:"🍫", cat:"cold",    veg:true,  popular:true,  photo:null },
+  { id:6,  name:"Classic Cold Coffee",            price:300, desc:"Chilled blended coffee with milk — creamy, cool and unapologetically classic.",      emoji:"🧊", cat:"cold",    veg:true,  popular:false, photo:null },
+  // ── Cold Brew
+  { id:7,  name:"Kisscoff Special Cold Brew",     price:340, desc:"Signature slow-steeped cold brew — smooth, low-acid and deeply caffeinated.",        emoji:"🫙", cat:"cold",    veg:true,  popular:true,  photo:null },
+  { id:8,  name:"Coconut Cold Brew",              price:300, desc:"House cold brew infused with creamy coconut — tropical, mellow and refreshing.",     emoji:"🥥", cat:"cold",    veg:true,  popular:false, photo:null },
+  // ── Matcha
+  { id:9,  name:"Matcha Latte",                   price:300, desc:"Ceremonial-grade matcha whisked with steamed milk, served hot or iced.",             emoji:"🍵", cat:"matcha",  veg:true,  popular:true,  photo:null },
+  { id:10, name:"Orange Matcha",                  price:340, desc:"Vibrant matcha layered with fresh orange — earthy meets citrusy.",                   emoji:"🍊", cat:"matcha",  veg:true,  popular:false, photo:null },
+  // ── Hot Teas
+  { id:11, name:"Kashmiri Kahwa",                 price:400, desc:"Aromatic Kashmiri green tea with saffron, cardamom, almonds & rose petals.",         emoji:"🌸", cat:"matcha",  veg:true,  popular:true,  photo:null },
+  { id:12, name:"Chamomile",                      price:250, desc:"Delicate dried chamomile flowers steeped for a calming, floral brew.",               emoji:"🌼", cat:"matcha",  veg:true,  popular:false, photo:null },
+  // ── Milkshakes
+  { id:13, name:"Biscoff Milkshake",              price:390, desc:"Thick shake loaded with Biscoff cookie butter and topped with crumbled biscuits.",   emoji:"🥤", cat:"shakes",  veg:true,  popular:true,  photo:null },
+  { id:14, name:"Brownie Milkshake",              price:350, desc:"Chunky chocolate brownie blended into a rich, indulgent milkshake.",                 emoji:"🍫", cat:"shakes",  veg:true,  popular:false, photo:null },
+  // ── Fresheners
+  { id:15, name:"Virgin Mojito",                  price:270, desc:"Muddled mint and lime with soda — clean, crisp and endlessly refreshing.",           emoji:"🌿", cat:"cold",    veg:true,  popular:false, photo:null },
+  { id:16, name:"Coffee Mojito",                  price:320, desc:"Cold brew meets mint mojito — a caffeinated twist on the classic cooler.",           emoji:"☕", cat:"cold",    veg:true,  popular:false, photo:null },
+  // ── Desserts
+  { id:17, name:"Biscoff Cheesecake",             price:340, desc:"Silky no-bake cheesecake on a Biscoff crust, topped with caramelised spread.",      emoji:"🍰", cat:"desserts", veg:true, popular:true,  photo:null },
+  { id:18, name:"Brownie",                        price:345, desc:"Fudgy, dense chocolate brownie — crisp edges, molten centre, served warm.",          emoji:"🍫", cat:"desserts", veg:true, popular:false, photo:null },
+  // ── Small Plates
+  { id:19, name:"Chipotle Chicken Wrap",          price:535, desc:"Smoky chipotle grilled chicken tucked in a soft tortilla with slaw & sauce.",        emoji:"🌯", cat:"food",    veg:false, popular:true,  photo:null },
+  { id:20, name:"Fish and Chips",                 price:585, desc:"Beer-battered basa fillets with crispy fries, tartar sauce and lemon wedge.",        emoji:"🐟", cat:"food",    veg:false, popular:true,  photo:null },
+  // ── All Day Breakfast
+  { id:21, name:"Classic English Breakfast",      price:425, desc:"Eggs, sausage, grilled tomato, mushrooms and toast — the full works.",               emoji:"🍳", cat:"food",    veg:false, popular:true,  photo:null },
+  { id:22, name:"Fluffy Pancakes with Maple Syrup",price:405, desc:"Thick stack of cloud-like pancakes drenched in warm maple syrup.",                  emoji:"🥞", cat:"food",    veg:true,  popular:false, photo:null },
+  // ── Pasta
+  { id:23, name:"Truffle Mushroom Fettuccine",    price:665, desc:"Fettuccine tossed in truffle oil with sautéed wild mushrooms. Chicken +₹90.",        emoji:"🍝", cat:"food",    veg:true,  popular:true,  photo:null },
+  { id:24, name:"Mac and Cheese",                 price:565, desc:"Macaroni smothered in a gooey four-cheese sauce, oven-baked to a golden crust.",     emoji:"🧀", cat:"food",    veg:true,  popular:false, photo:null },
+  // ── Pizza
+  { id:25, name:"Lamb Kheema Pizza",              price:725, desc:"Thin crust topped with spiced minced lamb, onions, chillies & fresh coriander.",     emoji:"🍕", cat:"food",    veg:false, popular:true,  photo:null },
+  { id:26, name:"Four Cheese Pizza",              price:625, desc:"Mozzarella, cheddar, parmesan and blue cheese melted on a hand-stretched base.",     emoji:"🧀", cat:"food",    veg:true,  popular:false, photo:null },
+  // ── Mains
+  { id:27, name:"Grilled Chicken Lemon Butter",   price:545, desc:"Pan-grilled chicken breast finished in a bright lemon butter herb sauce.",           emoji:"🍗", cat:"food",    veg:false, popular:true,  photo:null },
+  { id:28, name:"Pan-Seared Basa Garlic Butter",  price:465, desc:"Crispy skin basa fillet in rich garlic butter with seasonal greens.",                emoji:"🐠", cat:"food",    veg:false, popular:false, photo:null },
+  // ── Rice Bowls
+  { id:29, name:"Thai Green Curry Bowl",          price:475, desc:"Fragrant green curry over jasmine rice — veg ₹475 / chicken ₹525.",                  emoji:"🍚", cat:"food",    veg:true,  popular:true,  photo:null },
+  { id:30, name:"Mexican Bowl",                   price:405, desc:"Rice, beans, guac, salsa and sour cream in a bold Tex-Mex bowl. Non-veg ₹645.",      emoji:"🫙", cat:"food",    veg:true,  popular:false, photo:null },
+  // ── Salads
+  { id:31, name:"Caesar Salad",                   price:375, desc:"Romaine, parmesan & croutons in classic Caesar dressing. Non-veg +₹75.",             emoji:"🥗", cat:"food",    veg:true,  popular:false, photo:null },
+  { id:32, name:"Watermelon Feta Salad",          price:375, desc:"Juicy watermelon, crumbled feta, mint and balsamic glaze — fresh & vibrant.",        emoji:"🍉", cat:"food",    veg:true,  popular:false, photo:null },
 ];
 
 let currentDish = null;
